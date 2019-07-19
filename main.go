@@ -38,7 +38,7 @@ func main() {
 			Title:       Exc.GetFileName(),
 			UserName:    "liyuan@bettem.com",
 			PassWord:    "1pLvzZ9HNvcmWSRn",
-			SendTo:      "940079461@qq.com",
+			SendTo:      "b@bettem.com",
 			Host:        "smtp.qiye.163.com",
 			Point:       25,
 			Auth:        "李渊",
