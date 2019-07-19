@@ -32,19 +32,15 @@ func main() {
 		if err := Exc.NewExcel(); err != nil {
 			return err
 		}
-
-		mail := mail.Mail{
-			FileNameDir: Exc.GetFileDir(),
-			Title:       Exc.GetFileName(),
-			UserName:    "liyuan@bettem.com",
-			PassWord:    "",
-			SendTo:      "b@bettem.com",
-			Host:        "smtp.qiye.163.com",
-			Point:       25,
-			Auth:        "李渊",
-			CopyTo:      []string{"man@bettem.com", "mal@bettem.com", "jijm@bettem.com"},
+		config, getconfigErr := mail.GetConfig()
+		if getconfigErr != nil {
+			return getconfigErr
 		}
-		mail.Send()
+		config.FileNameDir = Exc.GetFileDir()
+		config.Title = Exc.GetFileName()
+		fmt.Println(config)
+		// config.Send()
+
 		return nil
 	}
 	err := app.Run(os.Args)
