@@ -55,13 +55,13 @@ func (M *Mail) Send() error {
 	m.SetAddressHeader("From", "liyuan@bettem.com" /*"发件人地址"*/, "李渊") // 发件人
 
 	m.SetHeader("To",
-		m.FormatAddress("940079461@qq.com", "收件人")) // 收件人
-	// m.SetHeader("Cc",
-	//	m.FormatAddress("ruanb@bettem.com", "收件人")) //抄送
-	// m.SetHeader("Cc",
-	//	m.FormatAddress("mal@bettem.com", "收件人")) //抄送
-	// m.SetHeader("Cc",
-	//	m.FormatAddress("jijm@bettem.com", "收件人")) //抄送
+		m.FormatAddress("b@bettem.com", "收件人")) // 收件人
+	m.SetHeader("Cc",
+		m.FormatAddress("man@bettem.com", "收件人")) //抄送
+	m.SetHeader("Cc",
+		m.FormatAddress("mal@bettem.com", "收件人")) //抄送
+	m.SetHeader("Cc",
+		m.FormatAddress("jijm@bettem.com", "收件人")) //抄送
 
 	m.SetHeader("Subject", M.Title) // 主题
 
