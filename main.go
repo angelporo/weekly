@@ -34,6 +34,11 @@ func main() {
 		mail := mail.Mail{
 			FileNameDir: Exc.GetFileDir(),
 			Title:       Exc.GetFileName(),
+			UserName:    "liyuan@bettem.com",
+			PassWord:    "1pLvzZ9HNvcmWSRn",
+			SendTo:      "940079461@qq.com",
+			Host:        "smtp.qiye.163.com",
+			CopyTo:      []string{"qiaoxl@bettem.com", "ruanb@bettem.com"},
 		}
 		mail.Send()
 		return nil
