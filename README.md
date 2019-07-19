@@ -5,7 +5,9 @@
 使用需要 163 邮箱开启 pop/smtp 密码使用授权码
 
 
-# 配置文件 `email.config.json`
+# 配置文件 `email.config.json` 配置文件需要和可执行命令在同目录下
+
+`window`下没有做测试
 
 
 ```
