@@ -5,5 +5,5 @@
   "Host": "smtp.qiye.163.com",
   "Point": 25,
   "Auth": "李渊",
-  "CopyTo": []
+  "CopyTo": ["jijm@bettem.com", "man@bettem.com", "mal@bettem.com"]
 }
