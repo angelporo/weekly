@@ -38,8 +38,7 @@ func main() {
 		}
 		config.FileNameDir = Exc.GetFileDir()
 		config.Title = Exc.GetFileName()
-		fmt.Println(config)
-		// config.Send()
+		config.Send()
 
 		return nil
 	}
