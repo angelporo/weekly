@@ -5,9 +5,20 @@
 使用需要 163 邮箱开启 pop/smtp 密码使用授权码
 
 
-## TODO
+# 配置文件 `email.config.json`
 
-- 收件人 抄送人 个人内容 配置化
+
+```
+{
+  "UserName": "liyuan@bettem.com",
+  "PassWord": "密码(授权码)",
+  "SendTo": "liyuan@bettem.com",
+  "Host": "smtp.qiye.163.com",
+  "Point": 25,
+  "Auth": "李渊",
+  "CopyTo": [""]
+}
+```
 
 
 ### Golang 支持交叉编译
