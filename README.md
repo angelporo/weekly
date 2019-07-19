@@ -15,8 +15,8 @@
   "SendTo": "liyuan@bettem.com",
   "Host": "smtp.qiye.163.com",
   "Point": 25,
-  "Auth": "李渊",
-  "CopyTo": [""]
+  "Auth": "李渊", <!--这里发送人员名称 -->
+  "CopyTo": [""] <!-- 抄送人邮箱地址 -->
 }
 ```
 
