@@ -2,6 +2,7 @@ package main
 
 import (
 	"errors"
+	"fmt"
 	"log"
 	"os"
 
@@ -22,6 +23,7 @@ func main() {
 		if start == "" || end == "" || content == "" {
 			return errors.New("你难道不会看看命令行帮助吗?")
 		}
+		fmt.Println("发送中...")
 		Exc := subjoin.Excel{
 			Start:   c.Args().Get(0),
 			End:     c.Args().Get(1),
@@ -38,7 +40,9 @@ func main() {
 			PassWord:    "1pLvzZ9HNvcmWSRn",
 			SendTo:      "940079461@qq.com",
 			Host:        "smtp.qiye.163.com",
-			CopyTo:      []string{"qiaoxl@bettem.com", "ruanb@bettem.com"},
+			Point:       25,
+			Auth:        "李渊",
+			CopyTo:      []string{"man@bettem.com", "mal@bettem.com", "jijm@bettem.com"},
 		}
 		mail.Send()
 		return nil

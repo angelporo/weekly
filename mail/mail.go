@@ -12,6 +12,8 @@ type Mail struct {
 	FileNameDir string   // 文件绝对路径
 	Title       string   // 标题
 	UserName    string   // 用户名
+	Point       int      // 开放端口
+	Auth        string   // 作者 -> 邮件别名
 	PassWord    string   // 密码 -> 这里需要 smtp 授权码
 	SendTo      string   // 发送目标
 	CopyTo      []string // 抄送目标
@@ -44,7 +46,13 @@ func (M *Mail) Send() error {
 
 	m := gomail.NewMessage()
 
-	m.SetAddressHeader("From", M.UserName /*"发件人地址"*/, "李渊") // 发件人
+	var auth string
+	if M.Auth == "" {
+		auth = "李渊"
+	} else {
+		auth = M.Auth
+	}
+	m.SetAddressHeader("From", M.UserName /*"发件人地址"*/, auth) // 发件人
 
 	m.SetHeader("To",
 		m.FormatAddress(M.SendTo, "收件人")) // 收件人
@@ -57,9 +65,10 @@ func (M *Mail) Send() error {
 	m.SetBody("text/html", html.Html) // 可以放html..还有其他的
 	m.Attach(M.FileNameDir)           //添加附件
 
-	d := gomail.NewPlainDialer(M.Host, 25, M.UserName, M.PassWord) // 发送邮件服务器、端口、发件人账号、发件人密码
+	// 发送邮件服务器、端口、发件人账号、发件人密码
+	d := gomail.NewPlainDialer(M.Host, M.Point, M.UserName, M.PassWord)
 	if err := d.DialAndSend(m); err != nil {
-		log.Println("发送失败", err)
+		log.Println("发送失败: 如有疑问请联系李渊", err)
 		return err
 	}
 

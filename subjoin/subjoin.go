@@ -54,7 +54,6 @@ func (E *Excel) NewExcel() error {
 	if len(s) != 3 || len(e) != 3 {
 		return errors.New("检查你开始时间和结束时间的格式!")
 	}
-	fmt.Println(len(s))
 	titTime := fmt.Sprint(s[0] + "年" + s[1] + "月" + s[2] + "日" + " - " + e[1] + "月" + e[2] + "日")
 	title := "软件部李渊工作周报" + strings.ReplaceAll(end, "-", "")
 	filename := title + ".xlsx"
@@ -69,7 +68,7 @@ func (E *Excel) NewExcel() error {
 	f.MergeCell("Sheet1", "A1", "I1")
 	f.MergeCell("Sheet1", "A2", "E2")
 	f.MergeCell("Sheet1", "G2", "I2")
-	f.SetCellValue("Sheet1", "B1", "                                                                                   农担项目组周报表                                              "+titTime)
+	f.SetCellValue("Sheet1", "B1", "                                                                                   农担项目组周报表                                "+titTime)
 
 	// 设置列宽度
 	_ = f.SetColWidth("Sheet1", "B", "B", 50)
