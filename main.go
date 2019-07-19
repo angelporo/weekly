@@ -37,7 +37,7 @@ func main() {
 			FileNameDir: Exc.GetFileDir(),
 			Title:       Exc.GetFileName(),
 			UserName:    "liyuan@bettem.com",
-			PassWord:    "1pLvzZ9HNvcmWSRn",
+			PassWord:    "",
 			SendTo:      "b@bettem.com",
 			Host:        "smtp.qiye.163.com",
 			Point:       25,
