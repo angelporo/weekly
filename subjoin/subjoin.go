@@ -1,6 +1,7 @@
 package subjoin
 
 import (
+	"errors"
 	"fmt"
 	"log"
 	"os"
@@ -11,14 +12,23 @@ import (
 )
 
 type Excel struct {
-	Start   string
-	End     string
-	Content string
-	fileDir string
+	Start    string
+	End      string
+	Content  string
+	fileDir  string
+	FileName string
 }
 
 func (E *Excel) GetFileDir() string {
 	return E.fileDir
+}
+
+func (E *Excel) SetFileName(filename string) {
+	E.FileName = filename
+}
+
+func (E *Excel) GetFileName() string {
+	return E.FileName
 }
 
 func (E *Excel) SetFileDir(name string) {
@@ -41,12 +51,15 @@ func (E *Excel) NewExcel() error {
 
 	s := strings.Split(start, "-")
 	e := strings.Split(end, "-")
+	if len(s) != 3 || len(e) != 3 {
+		return errors.New("检查你开始时间和结束时间的格式!")
+	}
+	fmt.Println(len(s))
 	titTime := fmt.Sprint(s[0] + "年" + s[1] + "月" + s[2] + "日" + " - " + e[1] + "月" + e[2] + "日")
-
-	// filename := "软件部李渊工作周报" + strings.ReplaceAll(end, "-", "") + ".xlsx"
-	// fileDir := GetAppPath() + "/" + filename
-
-	fileDir := "./test.xlsx"
+	title := "软件部李渊工作周报" + strings.ReplaceAll(end, "-", "")
+	filename := title + ".xlsx"
+	E.SetFileName(title)
+	fileDir := GetAppPath() + "/" + filename
 	E.SetFileDir(fileDir)
 
 	f := excelize.NewFile()
