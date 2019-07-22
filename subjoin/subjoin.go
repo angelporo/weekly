@@ -95,9 +95,15 @@ func (E *Excel) NewExcel() error {
 	if err != nil {
 		return err
 	}
-	_ = f.SetCellStyle("Sheet1", "A2", "E4", borderStyle)
-	_ = f.SetCellStyle("Sheet1", "G2", "I4", borderStyle)
-	_ = f.SetCellStyle("Sheet1", "A1", "I1", borderStyle)
+	if err := f.SetCellStyle("Sheet1", "A2", "E4", borderStyle); err != nil {
+		return err
+	}
+	if err := f.SetCellStyle("Sheet1", "G2", "I4", borderStyle); err != nil {
+		return err
+	}
+	if err := f.SetCellStyle("Sheet1", "A1", "I1", borderStyle); err != nil {
+		return err
+	}
 
 	// 表头样式
 	tableHeadStyle, headErr := f.NewStyle(`{"font":
