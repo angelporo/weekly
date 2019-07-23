@@ -8,7 +8,7 @@
 
 ### example
 
-`weekly 2019-07-02 2019-07-15 这里是周报纪要`
+`./weekly 2019-07-02 2019-07-15 这里是周报纪要`
 
 [163邮箱开启授权码](https://help.mail.163.com/faqDetail.do?code=d7a5dc8471cd0c0e8b4b8f4f8e49998b374173cfe9171305fa1ce630d7f67ac2cda80145a1742516)
 
