@@ -14,13 +14,14 @@ import (
 func main() {
 	app := cli.NewApp()
 	app.Name = "weekly"
-	app.Usage = "example: weekly <starttime 2018-12-23> <endtime 2019-04-12> <content 周报主要内容> "
+	app.Usage = "example: weekly <*starttime 2018-12-23> <*endtime 2019-04-12> <*content 周报主要内容> <*nextContent 下周纪要>"
 
 	app.Action = func(c *cli.Context) error {
 		start := c.Args().Get(0)
 		end := c.Args().Get(1)
 		content := c.Args().Get(2)
-		if start == "" || end == "" || content == "" {
+		nextContent := c.Args().Get(3)
+		if start == "" || end == "" || content == "" || nextContent == "" {
 			return errors.New("你难道不会看看命令行帮助吗?")
 		}
 		fmt.Println("发送中...")
@@ -29,10 +30,11 @@ func main() {
 			return getconfigErr
 		}
 		Exc := subjoin.Excel{
-			Start:   c.Args().Get(0),
-			End:     c.Args().Get(1),
-			Content: c.Args().Get(2),
-			Auth:    config.Auth,
+			Start:       c.Args().Get(0),
+			End:         c.Args().Get(1),
+			Content:     c.Args().Get(2),
+			NextContent: c.Args().Get(3),
+			Auth:        config.Auth,
 		}
 		if err := Exc.NewExcel(); err != nil {
 			return err

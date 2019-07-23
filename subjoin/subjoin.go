@@ -12,12 +12,13 @@ import (
 )
 
 type Excel struct {
-	Start    string
-	End      string
-	Content  string
-	fileDir  string
-	Auth     string
-	FileName string
+	Start       string
+	End         string
+	Content     string
+	fileDir     string
+	Auth        string
+	FileName    string
+	NextContent string
 }
 
 func (E *Excel) GetFileDir() string {
@@ -57,7 +58,6 @@ func (E *Excel) NewExcel() error {
 	}
 	titTime := fmt.Sprint(s[0] + "年" + s[1] + "月" + s[2] + "日" + " - " + e[1] + "月" + e[2] + "日")
 	title := "软件部" + E.Auth + "工作周报" + strings.ReplaceAll(end, "-", "")
-	fmt.Println(title)
 	filename := title + ".xlsx"
 	E.SetFileName(title)
 	fileDir := GetAppPath() + "/" + filename
@@ -170,7 +170,7 @@ func (E *Excel) NewExcel() error {
 	f.SetCellValue("Sheet1", "D4", "暂无异常")
 	f.SetCellValue("Sheet1", "E4", E.Auth)
 	f.SetCellValue("Sheet1", "G4", "1")
-	f.SetCellValue("Sheet1", "H4", "美化页面")
+	f.SetCellValue("Sheet1", "H4", E.NextContent)
 	f.SetCellValue("Sheet1", "I4", E.Auth)
 
 	_ = f.SetRowHeight("Sheet1", 1, 50)
