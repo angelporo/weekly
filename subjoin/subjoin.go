@@ -16,6 +16,7 @@ type Excel struct {
 	End      string
 	Content  string
 	fileDir  string
+	Auth     string
 	FileName string
 }
 
@@ -55,7 +56,8 @@ func (E *Excel) NewExcel() error {
 		return errors.New("检查你开始时间和结束时间的格式!")
 	}
 	titTime := fmt.Sprint(s[0] + "年" + s[1] + "月" + s[2] + "日" + " - " + e[1] + "月" + e[2] + "日")
-	title := "软件部李渊工作周报" + strings.ReplaceAll(end, "-", "")
+	title := "软件部" + E.Auth + "工作周报" + strings.ReplaceAll(end, "-", "")
+	fmt.Println(title)
 	filename := title + ".xlsx"
 	E.SetFileName(title)
 	fileDir := GetAppPath() + "/" + filename

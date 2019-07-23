@@ -24,17 +24,18 @@ func main() {
 			return errors.New("你难道不会看看命令行帮助吗?")
 		}
 		fmt.Println("发送中...")
+		config, getconfigErr := mail.GetConfig()
+		if getconfigErr != nil {
+			return getconfigErr
+		}
 		Exc := subjoin.Excel{
 			Start:   c.Args().Get(0),
 			End:     c.Args().Get(1),
 			Content: c.Args().Get(2),
+			Auth:    config.Auth,
 		}
 		if err := Exc.NewExcel(); err != nil {
 			return err
-		}
-		config, getconfigErr := mail.GetConfig()
-		if getconfigErr != nil {
-			return getconfigErr
 		}
 		config.FileNameDir = Exc.GetFileDir()
 		config.Title = Exc.GetFileName()
