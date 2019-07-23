@@ -168,10 +168,10 @@ func (E *Excel) NewExcel() error {
 	f.SetCellValue("Sheet1", "B4", content)
 	f.SetCellValue("Sheet1", "C4", "100%")
 	f.SetCellValue("Sheet1", "D4", "暂无异常")
-	f.SetCellValue("Sheet1", "E4", "李渊")
+	f.SetCellValue("Sheet1", "E4", E.Auth)
 	f.SetCellValue("Sheet1", "G4", "1")
 	f.SetCellValue("Sheet1", "H4", "美化页面")
-	f.SetCellValue("Sheet1", "I4", "李渊")
+	f.SetCellValue("Sheet1", "I4", E.Auth)
 
 	_ = f.SetRowHeight("Sheet1", 1, 50)
 	_ = f.SetRowHeight("Sheet1", 2, 30)
