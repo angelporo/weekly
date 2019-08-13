@@ -165,6 +165,25 @@ func (E *Excel) NewExcel() error {
 	f.SetCellValue("Sheet1", "I3", "负责人")
 
 	f.SetCellValue("Sheet1", "A4", "1")
+
+	contentStyle, _ := f.NewStyle(`{
+	    "alignment":{
+		"horizontal":"center",
+		"vertical":"center",
+		"wrap_text":true
+	    },
+	     "border":[
+		       {"type":"left","color":"#000000","style":1},
+		       {"type":"right","color":"#000000","style":1},
+		       {"type":"top","color":"#000000","style":1},
+		       {"type":"bottom","color":"#000000","style":1}
+	    ],
+	      "font":{
+			"size":11,
+			 "bold":true
+		  }
+	}`)
+	f.SetCellStyle("Sheet1", "B4", "B4", contentStyle)
 	f.SetCellValue("Sheet1", "B4", content)
 	f.SetCellValue("Sheet1", "C4", "100%")
 	f.SetCellValue("Sheet1", "D4", "暂无异常")

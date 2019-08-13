@@ -1,9 +1,9 @@
 {
   "UserName": "liyuan@bettem.com",
-  "PassWord": "",
-  "SendTo": "liyuan@bettem.com",
+  "PassWord": "Mq6VQJPEGh2uRz1w",
+  "SendTo": "b@bettem.com",
   "Host": "smtp.qiye.163.com",
   "Point": 25,
   "Auth": "李渊",
-  "CopyTo": ["jijm@bettem.com", "man@bettem.com", "mal@bettem.com"]
+  "CopyTo": ["jijm@bettem.com", "ruanb@bettem.com", "mal@bettem.com"]
 }
