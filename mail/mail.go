@@ -11,15 +11,19 @@ import (
 )
 
 type Mail struct {
-	FileNameDir string   // 文件绝对路径
-	Title       string   // 标题
-	UserName    string   // 用户名
-	Point       int      // 开放端口
-	Auth        string   // 作者 -> 邮件别名
-	PassWord    string   // 密码 -> 这里需要 smtp 授权码
-	SendTo      string   // 发送目标
-	CopyTo      []string // 抄送目标
-	Host        string   // 发送目标域
+	FileNameDir       string   // 文件绝对路径
+	Title             string   // 标题
+	UserName          string   // 用户名
+	Point             int      // 开放端口
+	Auth              string   // 作者 -> 邮件别名
+	PassWord          string   // 密码 -> 这里需要 smtp 授权码
+	SendTo            string   // 发送目标
+	CopyTo            []string // 抄送目标
+	Host              string   // 发送目标域
+	StartTime         string   // 周报开始时间
+	EndTime           string   // 周报结束时间
+	Content           string   // 周报主要内容
+	NextWeeklyContent string   // 下周内容
 }
 
 func (M *Mail) getHtml() string {

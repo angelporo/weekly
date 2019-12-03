@@ -5,5 +5,14 @@
   "Host": "smtp.qiye.163.com",
   "Point": 25,
   "Auth": "李渊",
-  "CopyTo": ["jijm@bettem.com", "ruanb@bettem.com", "mal@bettem.com"]
+  "CopyTo": [
+    "mal@bettem.com",
+    "ruanb@bettem.com",
+    "wuky@bettem.com",
+    "yanjx@bettem.com"
+  ],
+  "startTime": "2019-12-02",
+  "endTime": "2019-12-06",
+  "content": "测试内容",
+  "nextWeeklyContent": "下周测试内容"
 }
