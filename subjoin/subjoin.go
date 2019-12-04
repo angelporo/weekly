@@ -19,6 +19,7 @@ type Excel struct {
 	Auth        string
 	FileName    string
 	NextContent string
+	TeamTitle   string // 项目组名称
 }
 
 func (E *Excel) GetFileDir() string {
@@ -70,7 +71,7 @@ func (E *Excel) NewExcel() error {
 	f.MergeCell("Sheet1", "A1", "I1")
 	f.MergeCell("Sheet1", "A2", "E2")
 	f.MergeCell("Sheet1", "G2", "I2")
-	f.SetCellValue("Sheet1", "B1", "                                                                                   农担项目组周报表                                "+titTime)
+	f.SetCellValue("Sheet1", "B1", "                                                                                   "+E.TeamTitle+"                                "+titTime)
 
 	// 设置列宽度
 	_ = f.SetColWidth("Sheet1", "B", "B", 50)

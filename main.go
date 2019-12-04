@@ -25,6 +25,7 @@ func main() {
 			Content:     config.Content,
 			NextContent: config.NextWeeklyContent,
 			Auth:        config.Auth,
+			TeamTitle:   config.TeamTitle,
 		}
 		fmt.Println("发送中请稍候...")
 		if err := Exc.NewExcel(); err != nil {
