@@ -1,30 +1,32 @@
-# 个人周报命令行工具, 命令行提交周报
+# <一键发送周报> 为了大家方便使用,已经编译好`mac`下和`win`的可执行二进制文件
 
-为了避免繁琐周报, 所以实现命令行添加, `周报内容`, 和 `开始`, `结束`时间
+# 使用
 
-## 使用
-
-项目内部已编译好`window` `linux` 可执行文件, `clone`下来后请求改配置文件,
-
-### example
-
-`./weekly 2019-07-02 2019-07-15 这里是周报纪要`
-
-[163邮箱开启授权码](https://help.mail.163.com/faqDetail.do?code=d7a5dc8471cd0c0e8b4b8f4f8e49998b374173cfe9171305fa1ce630d7f67ac2cda80145a1742516)
-
-配置文件 `email.config.json` 配置文件需要和可执行命令在同目录下
-
-```json
-{
-  "UserName": "liyuan@bettem.com",
-  "PassWord": "密码(授权码)",
-  "SendTo": "liyuan@bettem.com",
-  "Host": "smtp.qiye.163.com",
-  "Point": 25, <!-- 我们公司163邮箱默认 25 端口 -->
-  "Auth": "李渊", <!-- 这里发送人员名称 -->
-  "CopyTo": [""] <!-- 抄送人邮箱地址 -->
+根据以下数据结构 填写对应信息
+```golang
+type Mail struct {
+	FileNameDir       string   // 文件绝对路径
+	Title             string   // 标题
+	UserName          string   // 用户名
+	Point             int      // 开放端口
+	Auth              string   // 作者 -> 邮件别名 对应excel中作者
+	PassWord          string   // 密码 -> 这里需要 smtp 授权码
+	SendTo            string   // 发送目标
+	CopyTo            []string // 抄送目标
+	Host              string   // 发送目标域
+	StartTime         string   // 周报开始时间 栗子: 2019-05-12
+	EndTime           string   // 周报结束时间 栗子: 2019-05-12
+	Content           string   // 周报主要内容
+	NextWeeklyContent string   // 下周内容
 }
 ```
+
+[163邮箱开启授权码(以上PassWord获取方法)](https://help.mail.163.com/faqDetail.do?code=d7a5dc8471cd0c0e8b4b8f4f8e49998b374173cfe9171305fa1ce630d7f67ac2cda80145a1742516)
+
+- 修改`email.config.json`中对应内容
+- 执行`./weekly`
+
+# 个人周报命令行工具, 命令行提交周报
 
 
 ### 如果想要自己编译, Golang 支持交叉编译 , 请配置号环境自己编译
@@ -34,5 +36,5 @@
 
 Mac 下编译 Linux 和 Windows 64位可执行程序
 
-- CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build main.go
+- CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build main.go
 - CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build main.go
