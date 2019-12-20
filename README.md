@@ -9,6 +9,7 @@ type Mail struct {
 	Title             string   // 标题
 	UserName          string   // 用户名
 	Point             int      // 开放端口
+	TeamTitle         string   // 项目组名称
 	Auth              string   // 作者 -> 邮件别名 对应excel中作者
 	PassWord          string   // 密码 -> 这里需要 smtp 授权码
 	SendTo            string   // 发送目标
