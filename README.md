@@ -8,15 +8,15 @@ type Mail struct {
 	FileNameDir       string   // 文件绝对路径
 	Title             string   // 标题
 	UserName          string   // 用户名
-	Point             int      // 开放端口
+	Point             int      // 开放端口(不要修改)
 	TeamTitle         string   // 项目组名称
 	Auth              string   // 作者 -> 邮件别名 对应excel中作者
 	PassWord          string   // 密码 -> 这里需要 smtp 授权码
 	SendTo            string   // 发送目标
 	CopyTo            []string // 抄送目标
 	Host              string   // 发送目标域
-	StartTime         string   // 周报开始时间 栗子: 2019-05-12
-	EndTime           string   // 周报结束时间 栗子: 2019-05-12
+	StartTime         string   // 周报开始时间 栗子: 2019-05-12(不可以使用/来区分)
+	EndTime           string   // 周报结束时间 栗子: 2019-05-12(不可以使用/来区分)
 	Content           string   // 周报主要内容
 	NextWeeklyContent string   // 下周内容
 }
@@ -27,10 +27,9 @@ type Mail struct {
 - 修改`email.config.json`中对应内容
 - 执行`./weekly`
 
-# 个人周报命令行工具, 命令行提交周报
 
 
-### 如果想要自己编译, Golang 支持交叉编译 , 请配置号环境自己编译
+### (未编译32位, 如有需要自行编译或者联系作者)请配置号环境自己编译
 
 可以源码运行 , 也可以编译后运行
 [地址](https://blog.csdn.net/panshiqu/article/details/53788067)
